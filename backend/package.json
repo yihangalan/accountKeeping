@@ -21,6 +21,8 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.1",
     "mssql": "^9.1.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.4.2",
     "nodemon": "^2.0.22",
     "uuid": "^9.0.0"
   },

@@ -1,10 +1,17 @@
 import express from "express";
+import db from "../../db/index.js";
 
 const router = express.Router();
 
 // Gets all species
 router.get("/", async (req, res) => {
-  return res.json({"message": "Hello a World!"});
+  db.query('SELECT * FROM user', (err, result) => {
+    if (err) {
+      res.send(err.message);
+    } else {
+      res.send(result);
+    }
+  })
 });
 
 export default router;
