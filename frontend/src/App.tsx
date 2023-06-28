@@ -1,19 +1,36 @@
 import './App.css'
-import {createBrowserRouter, RouterProvider, Route} from "react-router-dom";
+import {createBrowserRouter, RouterProvider, Route, Outlet} from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Profile from "./pages/Profile";
+
+const Layout = () =>{
+    return(
+        <div>
+            <Navbar></Navbar>
+            <Outlet/>
+            <Footer></Footer>
+        </div>
+    )
+}
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <div>
-            <Navbar></Navbar>
-            <Home/>
-            <Footer></Footer>
-            </div>,
+        element: <Layout/>,
+        children: [
+            {
+                path: "/",
+                element: <Home/>,
+            },
+            {
+                path: "/profile/:id",
+                element: <Profile/>,
+            },
+        ],
     },
     {
         path: "/register",
@@ -27,10 +44,13 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
-      <RouterProvider router={router}/>
-    </>
+    <div className="app">
+        <div className="container">
+            <RouterProvider router={router}/>
+        </div>
+    </div>
   )
 }
 
 export default App
+
