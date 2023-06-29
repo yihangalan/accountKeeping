@@ -21,10 +21,3 @@ app.use("/", routes);
 
 app.listen(port, () => console.log(`accountKeeping Server listening on port ${port}!`))
 
-//
-// // Start the DB running. Then, once it's connected, start the server.
-// mongoose
-//   .connect(process.env.DB_URL, { useNewUrlParser: true })
-//   .then(() =>
-//     app.listen(port, () => console.log(`accountKeeping Server listening on port ${port}!`))
-//   );
