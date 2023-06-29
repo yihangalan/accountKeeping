@@ -1,8 +1,11 @@
+import Logo from "../img/Keep.png";
+
 function Footer(){
     return(
-        <div>
-            <h1>Footer</h1>
-        </div>
+        <footer>
+            {/*<img src={Logo} alt={""}></img>*/}
+            {/*<h1>Footer</h1>*/}
+        </footer>
     )
 }
 export default Footer;

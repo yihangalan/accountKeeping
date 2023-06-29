@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Gets all species
 router.get("/", async (req, res) => {
-  db.query('SELECT * FROM user', (err, result) => {
+  db.query('SELECT * FROM post', (err, result) => {
     if (err) {
       res.send(err.message);
     } else {
