@@ -5,7 +5,6 @@ import {useContext, useState} from "react";
 import {AuthContext} from "../context/authContext";
 import {Autocomplete, Input, Paper, TextField} from "@mui/material";
 
-
 function Navbar(){
 
     const {currentUser, logout} = useContext(AuthContext)
