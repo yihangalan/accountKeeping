@@ -7,9 +7,16 @@ import {Autocomplete, Input, Paper, TextField, Button} from "@mui/material";
 import { yellow } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from "react-router-dom";
+import { NumericFormat } from "react-number-format";
+//
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+
 
 function Navbar(){
-
     // const theme = createTheme({
     //     palette: {
     //         yellow: {
@@ -22,6 +29,25 @@ function Navbar(){
     const {currentUser, logout} = useContext(AuthContext)
 
     const [isPopupOpen, setPopupOpen] = useState(false);
+
+    const [inputs, setInputs] = useState({
+        category: "",
+        amount: "",
+        date: "",
+        description: "",
+    });
+
+    const handleChange = (e: any, newValue: string | null) => {
+        console.log(e.target.value);
+    }
+    const handleCatChange = (e: any, newValue: string | null) => {
+        console.log(newValue);
+    }
+    const handleDateChange = (newValue, context) => {
+        console.log(newValue);
+        console.log(context);
+    };
+
     const handleButtonClick = () => {
         if(currentUser){
             setPopupOpen(true);
@@ -65,14 +91,28 @@ function Navbar(){
                 <Paper className="popup-container" xs={{m: 5}} sx={{m: 3}}>
                     {/*    content of popup*/}
                     <Autocomplete
+                        onChange={handleCatChange}
+                        fullWidth
                         disablePortal
                         id="form"
                         options={popupOptions}
                         sx={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Category" />}
                     />
-                    <TextField fullWidth  id="outlined-basic" label="Amount $" variant="outlined" sx={{m: 3}} />
-                    <TextField fullWidth  id="outlined-basic" label="Description" variant="filled" sx={{mb: 3}} />
+                    <NumericFormat onChange={handleChange} helperText="Number Only" sx={{mt: 3, mb: 2}} label="Amount" fullWidth prefix="$" thousandSeparator customInput={TextField} variant="outlined"/>
+
+
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DemoContainer fullWidth components={['DatePicker']}>
+                            <StaticDatePicker onChange={handleDateChange} orientation="landscape" />
+                        </DemoContainer>
+                    </LocalizationProvider>
+
+
+                    <TextField onChange={handleChange} fullWidth  id="outlined-basic" label="Description" variant="filled" sx={{mb: 3, mt: 3}} />
+
+
+
                     {/*<ThemeProvider theme={theme}>*/}
                     {/*    <Button variant="outlined" color="yellow">Outlined</Button>*/}
                     {/*</ThemeProvider>*/}

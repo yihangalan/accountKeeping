@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="867c179f-498f-48f9-ad2f-af95739fdc28" name="Changes" comment="add react context">
+    <list default="true" id="867c179f-498f-48f9-ad2f-af95739fdc28" name="Changes" comment="frontend write form and finish frontend data combine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/nav-footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav-footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +121,7 @@
       <workItem from="1687928122025" duration="648000" />
       <workItem from="1687929251673" duration="8475000" />
       <workItem from="1687953987691" duration="5359000" />
-      <workItem from="1688003676359" duration="37231000" />
+      <workItem from="1688003676359" duration="43478000" />
     </task>
     <task id="LOCAL-00001" summary="setup frontend and backend">
       <created>1687928169190</created>
@@ -199,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688118907356</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="frontend write">
+      <created>1688121518427</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688121518427</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +262,8 @@
     <MESSAGE value="finish register" />
     <MESSAGE value="finish login and logout &#10;add jwt&#10;add Bokeh background pop-up window" />
     <MESSAGE value="add react context" />
-    <option name="LAST_COMMIT_MESSAGE" value="add react context" />
+    <MESSAGE value="frontend write" />
+    <MESSAGE value="frontend write form and finish frontend data combine" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend write form and finish frontend data combine" />
   </component>
 </project>
