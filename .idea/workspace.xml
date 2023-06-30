@@ -4,20 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="867c179f-498f-48f9-ad2f-af95739fdc28" name="Changes" comment="finishing navbar">
-      <change afterPath="$PROJECT_DIR$/backend/src/controllers/post.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/api/auth.js" afterDir="false" />
+    <list default="true" id="867c179f-498f-48f9-ad2f-af95739fdc28" name="Changes" comment="finish register">
+      <change afterPath="$PROJECT_DIR$/frontend/src/context/authContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/addButton.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/api/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/api/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/api/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/api/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/api/species.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/nav-footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav-footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/login.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +32,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -47,7 +53,6 @@
     <setting file="file://$PROJECT_DIR$/backend/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/routes/api/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/src/routes/api/species.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/routes/index.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -61,27 +66,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/13373/accountKeeping&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Confirmation&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\13373\\accountKeeping\\frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/13373/accountKeeping",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Confirmation",
+    "ts.external.directory.path": "D:\\13373\\accountKeeping\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\13373\accountKeeping" />
@@ -129,7 +134,7 @@
       <workItem from="1687928122025" duration="648000" />
       <workItem from="1687929251673" duration="8475000" />
       <workItem from="1687953987691" duration="5359000" />
-      <workItem from="1688003676359" duration="16040000" />
+      <workItem from="1688003676359" duration="35064000" />
     </task>
     <task id="LOCAL-00001" summary="setup frontend and backend">
       <created>1687928169190</created>
@@ -187,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688017499448</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="finish register">
+      <created>1688025428801</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688025428801</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +251,7 @@
     <MESSAGE value="setup frontend" />
     <MESSAGE value="layout of login and register" />
     <MESSAGE value="finishing navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="finishing navbar" />
+    <MESSAGE value="finish register" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish register" />
   </component>
 </project>

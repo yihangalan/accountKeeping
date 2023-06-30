@@ -1,7 +1,8 @@
-import {Button, Grid, Input, Link, Paper} from "@mui/material";
+import {Button, Grid, Input, Link, Paper, Alert} from "@mui/material";
 import "./login.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function Register(){
     const backend_url = "http://localhost:3000/api"
@@ -11,6 +12,25 @@ function Register(){
         email: '',
         password: '',
     })
+    const [errors, setErrors] = useState(null)
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // 延迟执行的函数
+        const delayedFunction = () => {
+            setErrors(null);
+        };
+
+        // 延迟时间，单位为毫秒
+        const delay = 3000;
+
+        // 使用 setTimeout 延迟执行函数
+        const timeoutId = setTimeout(delayedFunction, delay);
+
+        // 在组件销毁时清除定时器
+        return () => clearTimeout(timeoutId);
+    }, [errors]);
+
 
     const handleChange = (e: any) => {
         setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
@@ -20,10 +40,10 @@ function Register(){
         //used to prevent refreshing the page
         e.preventDefault();
         try{
-            const res = await axios.post(backend_url + "/auth/register", inputs)
-            console.log(res)
+            await axios.post(backend_url + "/auth/register", inputs)
+            navigate("/login");
         }catch (err) {
-            console.log(err)
+            setErrors(err.response.data)
         }
     }
 
@@ -47,6 +67,10 @@ function Register(){
                     <Grid item sx={{ mb: 3 }}>
                         <Button onClick={handleSubmit} variant="contained">SUBMIT</Button>
                     </Grid>
+                    <Grid item sx={{ mb: 3 }}>
+                        {errors && <Alert variant="outlined" severity="error">{errors}</Alert>}
+                    </Grid>
+
                     <Grid item sx={{ mb: 3 }}>
                         <span>Don't you have an account?<Link href="/login">Login</Link>
                         </span>
