@@ -3,15 +3,32 @@ import Logo from "../img/Keep.png";
 import {Link} from "react-router-dom";
 import {useContext, useState} from "react";
 import {AuthContext} from "../context/authContext";
-import {Autocomplete, Input, Paper, TextField} from "@mui/material";
+import {Autocomplete, Input, Paper, TextField, Button} from "@mui/material";
+import { yellow } from '@mui/material/colors';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useNavigate} from "react-router-dom";
 
 function Navbar(){
 
+    // const theme = createTheme({
+    //     palette: {
+    //         yellow: {
+    //             // This is green.A700 as hex.
+    //             main: "#ff9800",
+    //         },
+    //     },
+    // });
+    const navigate = useNavigate();
     const {currentUser, logout} = useContext(AuthContext)
 
     const [isPopupOpen, setPopupOpen] = useState(false);
     const handleButtonClick = () => {
-        setPopupOpen(true); // 点击按钮后将弹窗设置为显示
+        if(currentUser){
+            setPopupOpen(true);
+        }else{
+            navigate("/login");
+        }
+
     };
     const closePopup =() =>{
         setPopupOpen(false);
@@ -45,7 +62,7 @@ function Navbar(){
             </div>
             {/*popup form*/}
             {isPopupOpen && (
-                <Paper className="popup-container" xs={{m: 5}}>
+                <Paper className="popup-container" xs={{m: 5}} sx={{m: 3}}>
                     {/*    content of popup*/}
                     <Autocomplete
                         disablePortal
@@ -54,11 +71,16 @@ function Navbar(){
                         sx={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Category" />}
                     />
+                    <TextField fullWidth  id="outlined-basic" label="Amount $" variant="outlined" sx={{m: 3}} />
+                    <TextField fullWidth  id="outlined-basic" label="Description" variant="filled" sx={{mb: 3}} />
+                    {/*<ThemeProvider theme={theme}>*/}
+                    {/*    <Button variant="outlined" color="yellow">Outlined</Button>*/}
+                    {/*</ThemeProvider>*/}
+                    <Button variant="outlined" color="warning">Outlined</Button>
                 </Paper>
             )}
             {/*Blurred background*/}
             {isPopupOpen && <div className="overlay" onClick={closePopup}></div>}
-
 
         </div>
     )
