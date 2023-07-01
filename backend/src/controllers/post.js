@@ -6,7 +6,24 @@ export const getPosts = (req, res) => {
 }
 
 export const getPost = (req, res) => {
-    res.json("from post controller");
+    res.json("from post controller getPost");
+}
+export const getPostsByMonth = (req, res) => {
+    const q = "SELECT * FROM posts WHERE MONTH(date) = (?) AND YEAR(date)=(?) AND uid=(?)"
+    try{
+        const values = [
+            req.query.month,
+            req.query.year,
+            req.query.uid
+        ]
+
+        db.query(q,values, (err, data)=>{
+            if (err) return res.json(err);
+            return res.status(200).json(data)
+        });
+    }catch (err){
+        return res.status(500).json(err)
+    }
 }
 
 export const addPost = (req, res) => {

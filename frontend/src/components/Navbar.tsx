@@ -27,7 +27,7 @@ function Navbar(){
     //         },
     //     },
     // });
-    const backend_url = "http://localhost:3000/api"
+    const backend_url = "http://localhost:3000/api";
     const navigate = useNavigate();
     const {currentUser, logout} = useContext(AuthContext)
 
@@ -112,7 +112,7 @@ function Navbar(){
             </div>
             {/*popup form*/}
             {isPopupOpen && (
-                <Paper className="popup-container" xs={{m: 5}} sx={{m: 3}}>
+                <Paper className="popup-container" xs={{m: 5}} sx={{m: 5, p: 3}}>
                     {/*    content of popup*/}
                     <Autocomplete
                         onChange={handleCatChange}
