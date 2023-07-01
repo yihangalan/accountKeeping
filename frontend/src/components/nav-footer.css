@@ -65,7 +65,7 @@ footer{
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 20px;
-    z-index: 9999;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,6 +80,6 @@ footer{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2px); /* 设置背景模糊效果 */
-    z-index: 9998;
+    z-index: 2;
 }
 

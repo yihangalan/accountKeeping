@@ -3,7 +3,7 @@ import Logo from "../img/Keep.png";
 import {Link} from "react-router-dom";
 import {useContext, useState} from "react";
 import {AuthContext} from "../context/authContext";
-import {Autocomplete, Input, Paper, TextField, Button} from "@mui/material";
+import {Autocomplete, Input, Paper, TextField, Button, Alert} from "@mui/material";
 import { yellow } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from "react-router-dom";
@@ -14,6 +14,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import * as dayjs from "dayjs";
+import axios from "axios";
 
 
 function Navbar(){
@@ -25,28 +27,51 @@ function Navbar(){
     //         },
     //     },
     // });
+    const backend_url = "http://localhost:3000/api"
     const navigate = useNavigate();
     const {currentUser, logout} = useContext(AuthContext)
 
     const [isPopupOpen, setPopupOpen] = useState(false);
+    const [errors, setErrors] = useState(null);
 
     const [inputs, setInputs] = useState({
         category: "",
         amount: "",
-        date: "",
+        date: dayjs().$d.toDateString(),
         description: "",
+        uid: currentUser? currentUser.id: "",
     });
+    // console.log(inputs);
+
 
     const handleChange = (e: any, newValue: string | null) => {
-        console.log(e.target.value);
+        setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
     }
-    const handleCatChange = (e: any, newValue: string | null) => {
-        console.log(newValue);
+    const handleCatChange = (e: any, newValue: string) => {
+        setInputs(prev=>({...prev, "category": newValue}))
     }
     const handleDateChange = (newValue, context) => {
-        console.log(newValue);
-        console.log(context);
+        setInputs(prev=>({...prev, "date": newValue.$d.toDateString()}))
+        // console.log(newValue.$d.toDateString());
     };
+
+    const handleSubmit = async e =>{
+        //used to prevent refreshing the page
+        e.preventDefault();
+        try{
+            await axios.post(backend_url+ "/post", inputs);
+            setInputs({
+                category: "",
+                amount: "",
+                date: "",
+                description: "",
+                uid: currentUser?.id,
+            })
+            setPopupOpen(false);
+        }catch (err) {
+            setErrors(err.response.data)
+        }
+    }
 
     const handleButtonClick = () => {
         if(currentUser){
@@ -54,7 +79,6 @@ function Navbar(){
         }else{
             navigate("/login");
         }
-
     };
     const closePopup =() =>{
         setPopupOpen(false);
@@ -99,24 +123,47 @@ function Navbar(){
                         sx={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Category" />}
                     />
-                    <NumericFormat onChange={handleChange} helperText="Number Only" sx={{mt: 3, mb: 2}} label="Amount" fullWidth prefix="$" thousandSeparator customInput={TextField} variant="outlined"/>
+                    <NumericFormat
+                        name="amount"
+                        onChange={handleChange}
+                        helperText="Number Only"
+                        sx={{mt: 3, mb: 2}}
+                        label="Amount" fullWidth
+                        prefix="$" thousandSeparator
+                        customInput={TextField}
+                        variant="outlined"
+                    />
 
 
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DemoContainer fullWidth components={['DatePicker']}>
-                            <StaticDatePicker onChange={handleDateChange} orientation="landscape" />
+                            <DatePicker
+                                fullWidth
+                                defaultValue={dayjs()}
+                                onChange={handleDateChange}
+                                label="Select date"
+                            />
                         </DemoContainer>
                     </LocalizationProvider>
 
 
-                    <TextField onChange={handleChange} fullWidth  id="outlined-basic" label="Description" variant="filled" sx={{mb: 3, mt: 3}} />
+                    <TextField
+                        name="description"
+                        onChange={handleChange}
+                        fullWidth
+                        id="outlined-basic"
+                        label="Description"
+                        variant="filled"
+                        sx={{mb: 2, mt: 3}}
+                    />
+                    {errors && <Alert sx={{mb: 1}} variant="outlined" severity="error">{errors}</Alert>}
 
 
 
                     {/*<ThemeProvider theme={theme}>*/}
                     {/*    <Button variant="outlined" color="yellow">Outlined</Button>*/}
                     {/*</ThemeProvider>*/}
-                    <Button variant="outlined" color="warning">Outlined</Button>
+                    <Button onClick={handleSubmit} variant="outlined" color="warning">Outlined</Button>
                 </Paper>
             )}
             {/*Blurred background*/}
