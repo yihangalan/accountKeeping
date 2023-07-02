@@ -7,12 +7,14 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import {Container} from "@mui/material";
+import {useState} from "react";
 
 const Layout = () =>{
+
     return(
         <div>
             <Navbar></Navbar>
-            <Outlet/>
+            <Outlet />
             <Footer></Footer>
         </div>
     )
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home/>,
+                element: <Home />,
             },
             {
                 path: "/profile/:id",
@@ -47,7 +49,7 @@ function App() {
   return (
     <div className="app">
         <Container>
-        <RouterProvider router={router}/>
+            <RouterProvider router={router}/>
         </Container>
     </div>
   )

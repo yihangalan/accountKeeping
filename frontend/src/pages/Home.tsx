@@ -12,19 +12,24 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import * as dayjs from "dayjs";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import axios from "axios";
+import {PopupContext} from "../context/postContext";
+import Budget from "../components/Budget";
 
 
 
 function Home() {
     const backend_url = "http://localhost:3000/api"
+
     const {currentUser} = useContext(AuthContext)
+    const {isPopupOpen, setPopupOpen} = useContext(PopupContext)
+
     const [time, setTime] = useState(dayjs().$d);
     const [rows, setRows] = useState([]);
     const handleDateChange = (newValue, context) => {
         setTime(newValue.$d)
         // console.log(newValue.$d.toDateString());
     };
-    console.log(time);
+    // console.log(time);
 
     const columns: GridColDef[] = [
         { field: 'number', headerName: 'amount', width: 130 },
@@ -39,7 +44,7 @@ function Home() {
             year: time.getFullYear(),
             uid: currentUser.id
         }
-        console.log(value);
+        // console.log(value);
         async function getDataByMonth(){
             const res = await axios.get(backend_url + "/post/getPostsByMonth", {params: value})
 
@@ -52,7 +57,7 @@ function Home() {
         }
         getDataByMonth();
 
-    },[time])
+    },[time, isPopupOpen])
 
     // const rows = [
     //     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
@@ -81,40 +86,46 @@ function Home() {
     return (
         <div>
             {currentUser?
-                <div>
-                    <Grid container direction="column" justifyContent="center" alignItems="center">
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DemoContainer fullWidth components={['DatePicker']}>
-                                <DatePicker
-                                    fullWidth
-                                    onChange={handleDateChange}
-                                    defaultValue={dayjs()}
-                                    label={'month'}
-                                    views={['month', 'year']}
-                                />
-                            </DemoContainer>
-                        </LocalizationProvider>
+                <div className="display">
+                    <Grid container>
+                        <Grid item xs={3} md={3}>
+                            <Budget data={rows}></Budget>
+                        </Grid>
 
-                        <div style={{}}>
-                            <DataGrid
-                                sx={{mt: 5}}
-                                rows={rows}
-                                columns={columns}
-                                initialState={{
-                                    pagination: {
-                                        paginationModel: { page: 0, pageSize: 20 },
-                                    },
-                                }}
-                                pageSizeOptions={[10, 20]}
-                                checkboxSelection
-                            />
-                        </div>
+                        <Grid item xs={9} md={9}>
+                            <Grid container direction="column" justifyContent="center" alignItems="center">
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DemoContainer fullWidth components={['DatePicker']}>
+                                        <DatePicker
+                                            fullWidth
+                                            onChange={handleDateChange}
+                                            defaultValue={dayjs()}
+                                            label={'month'}
+                                            views={['month', 'year']}
+                                        />
+                                    </DemoContainer>
+                                </LocalizationProvider>
 
-
-
-
-                        <Paper></Paper>
+                                <div style={{}}>
+                                    <DataGrid
+                                        sx={{mt: 5}}
+                                        rows={rows}
+                                        columns={columns}
+                                        initialState={{
+                                            pagination: {
+                                                paginationModel: { page: 0, pageSize: 20 },
+                                            },
+                                        }}
+                                        pageSizeOptions={[10, 20]}
+                                        checkboxSelection
+                                    />
+                                </div>
+                            </Grid>
+                        </Grid>
                     </Grid>
+
+
+
                 </div>
 
                 :

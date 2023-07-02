@@ -16,6 +16,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import * as dayjs from "dayjs";
 import axios from "axios";
+import {PopupContext} from "../context/postContext";
 
 
 function Navbar(){
@@ -29,9 +30,11 @@ function Navbar(){
     // });
     const backend_url = "http://localhost:3000/api";
     const navigate = useNavigate();
-    const {currentUser, logout} = useContext(AuthContext)
 
-    const [isPopupOpen, setPopupOpen] = useState(false);
+    const {currentUser, logout} = useContext(AuthContext)
+    const {isPopupOpen, setPopupOpen} = useContext(PopupContext)
+
+    // const [isPopupOpen, setPopupOpen] = useState(false);
     const [errors, setErrors] = useState(null);
 
     const [inputs, setInputs] = useState({
@@ -68,6 +71,7 @@ function Navbar(){
                 uid: currentUser?.id,
             })
             setPopupOpen(false);
+            // window.location.reload()
         }catch (err) {
             setErrors(err.response.data)
         }

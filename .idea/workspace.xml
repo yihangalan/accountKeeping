@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="867c179f-498f-48f9-ad2f-af95739fdc28" name="Changes" comment="finishing addPost frontend and backend">
+    <list default="true" id="867c179f-498f-48f9-ad2f-af95739fdc28" name="Changes" comment="finishing getPost frontend and backend">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Budget.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/context/postContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/api/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/api/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +29,9 @@
         <option value="TypeScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -128,7 +133,7 @@
       <workItem from="1687929251673" duration="8475000" />
       <workItem from="1687953987691" duration="5359000" />
       <workItem from="1688003676359" duration="43727000" />
-      <workItem from="1688195830479" duration="15625000" />
+      <workItem from="1688195830479" duration="28250000" />
     </task>
     <task id="LOCAL-00001" summary="setup frontend and backend">
       <created>1687928169190</created>
@@ -228,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688208172986</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="finishing getPost frontend and backend">
+      <created>1688216817689</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1688216817689</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +298,7 @@
     <MESSAGE value="frontend write" />
     <MESSAGE value="frontend write form and finish frontend data combine" />
     <MESSAGE value="finishing addPost frontend and backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="finishing addPost frontend and backend" />
+    <MESSAGE value="finishing getPost frontend and backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="finishing getPost frontend and backend" />
   </component>
 </project>

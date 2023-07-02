@@ -9,7 +9,7 @@ export const getPost = (req, res) => {
     res.json("from post controller getPost");
 }
 export const getPostsByMonth = (req, res) => {
-    const q = "SELECT * FROM posts WHERE MONTH(date) = (?) AND YEAR(date)=(?) AND uid=(?)"
+    const q = "SELECT * FROM posts WHERE MONTH(date) = (?) AND YEAR(date)=(?) AND uid=(?) ORDER BY date DESC"
     try{
         const values = [
             req.query.month,
