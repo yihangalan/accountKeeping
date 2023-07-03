@@ -1,0 +1,13 @@
+.expenseDisplay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #ffac33;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+.title{
+    font-family: "Roboto Light", Arial, sans-serif;
+}

@@ -23,6 +23,9 @@ export default function Budget({data}){
 
 
     const option = {
+        tooltip: {
+            trigger: 'item'
+        },
         legend: {
             data: result.map(item=>item.name),
             icon: 'rect',
@@ -30,6 +33,12 @@ export default function Budget({data}){
         },
         series: [
             {
+                itemStyle: {
+                    borderRadius: 3,
+                    borderColor: '#fff',
+                    borderWidth: 1
+                },
+                avoidLabelOverlap: false,
                 label: {
                     show: false
                 },

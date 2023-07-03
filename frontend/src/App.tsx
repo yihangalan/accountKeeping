@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import {Container} from "@mui/material";
 import {useState} from "react";
+import Stats from "./pages/Stats";
 
 const Layout = () =>{
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: "/profile/:id",
                 element: <Profile/>,
+            },
+            {
+                path: "/stats",
+                element: <Stats/>,
             },
         ],
     },

@@ -94,16 +94,16 @@ function Navbar(){
         <div>
             <div className="container">
                 <div className="logo">
-                    <img src={Logo} alt={""}></img>
+                    <img src={Logo} alt={""} onClick={()=>navigate("/")}></img>
                 </div>
                 <div className="links">
-                    <Link className="link" to="/?cat=stats">
+                    <Link className="link" to="/stats">
                         <h6>STATS</h6>
                     </Link>
                     <Link className="link" to="/?cat=keep">
                         <h6>KEEP</h6>
                     </Link>
-                    <Link className="link" to="/?cat=chart">
+                    <Link className="link" to="/stats">
                         <h6>CHART</h6>
                     </Link>
                     <span>{currentUser?.username}</span>
